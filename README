@@ -1,0 +1,29 @@
+This is a quick hack to do NNRP authentication against a Kerberos password.
+This DOES NOT include Kerberos authentication via ticket passing -- it 
+only compares a username/password pair against the corresponding
+Kerberos V principal/password.
+
+You'll need to copy the resulting binary into ~news/bin/auth/passwd and
+add the appropriate lines to your readers.conf file.  For example:
+
+   auth "authenticated2" {
+      auth: "nnrpkrb5auth --instance=foo"
+   }
+
+   auth "authenticated" {
+      auth: "nnrpkrb5auth --instance=example.com"
+   }
+
+   access "authenticated2" {
+      users: "foo"
+      newsgroups: "hort.*,example.foo.*"
+   }
+
+   access "authenticated" {
+      users: "*/example.com"
+      newsgroups: "hort.*"
+   }
+
+Hopefully this will be of some use to people out there.
+
+Christopher P. Lindsey
