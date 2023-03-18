@@ -1,4 +1,7 @@
 This is a quick hack to do NNRP authentication against a Kerberos password.
+
+It is probably deprecated now (it's over twenty years old), but maybe it has some value.
+
 This DOES NOT include Kerberos authentication via ticket passing -- it 
 only compares a username/password pair against the corresponding
 Kerberos V principal/password.
